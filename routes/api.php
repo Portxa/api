@@ -95,4 +95,10 @@ Route::prefix('web')->group(function () {
     //index sliders
     Route::get('/sliders', [App\Http\Controllers\Api\Web\SliderController::class, 'index']);
 
+    Route::post('/guru/input', [App\Http\Controllers\Api\Web\GuruController::class, 'store']);
+    Route::get('/guru', [App\Http\Controllers\Api\Web\GuruController::class, 'index']);
+    Route::put('/guru/update/{guru}', [App\Http\Controllers\Api\Web\GuruController::class, 'update']);
+    Route::delete('/guru/delete/{guru}', [App\Http\Controllers\Api\Web\GuruController::class, 'destroy']);
+    Route::get('/guru/{id}', [App\Http\Controllers\Api\Web\GuruController::class, 'show']);
+
 });
