@@ -95,4 +95,9 @@ Route::prefix('web')->group(function () {
     //index sliders
     Route::get('/sliders', [App\Http\Controllers\Api\Web\SliderController::class, 'index']);
 
+    Route::get('/siswa', [App\Http\Controllers\Api\Web\SiswaController::class, 'index']);
+    Route::get('/siswa/{id}', [App\Http\Controllers\Api\Web\SiswaController::class, 'show']);
+    Route::post('/siswa/input', [App\Http\Controllers\Api\Web\SiswaController::class, 'store']);
+    Route::put('/siswa/update/{siswa}', [App\Http\Controllers\Api\Web\SiswaController::class, 'update']);
+    Route::delete('/siswa/delete/{siswa}', [App\Http\Controllers\Api\Web\SiswaController::class, 'destroy']);
 });
