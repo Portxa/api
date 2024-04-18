@@ -95,4 +95,11 @@ Route::prefix('web')->group(function () {
     //index sliders
     Route::get('/sliders', [App\Http\Controllers\Api\Web\SliderController::class, 'index']);
 
+    Route::get('/penerbit', [App\Http\Controllers\Api\Web\PenerbitController::class, 'index']);
+    Route::post('/penerbit/input', [App\Http\Controllers\Api\Web\PenerbitController::class, 'store']);
+    Route::get('/penerbit/{id}', [App\Http\Controllers\Api\Web\PenerbitController::class, 'show']);
+    Route::put('/penerbit/update/{penerbit}', [App\Http\Controllers\Api\Web\PenerbitController::class, 'update']);
+    Route::delete('/penerbit/delete/{penerbit}', [App\Http\Controllers\Api\Web\PenerbitController::class, 'destroy']);
+
+
 });
