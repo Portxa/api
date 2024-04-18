@@ -95,4 +95,10 @@ Route::prefix('web')->group(function () {
     //index sliders
     Route::get('/sliders', [App\Http\Controllers\Api\Web\SliderController::class, 'index']);
 
+    Route::post('/penulis/input', [App\Http\Controllers\Api\Web\PenulisController::class, 'store']);
+    Route::get('/penulis', [App\Http\Controllers\Api\Web\PenulisController::class, 'index']);
+    Route::put('/penulis/update/{penulis}', [App\Http\Controllers\Api\Web\PenulisController::class, 'update']);
+    Route::delete('/penulis/delete/{penulis}', [App\Http\Controllers\Api\Web\PenulisController::class, 'destroy']);
+    Route::get('/penulis/{id}', [App\Http\Controllers\Api\Web\PenulisController::class, 'show']);
+
 });
