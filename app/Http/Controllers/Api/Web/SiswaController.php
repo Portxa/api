@@ -51,9 +51,11 @@ class SiswaController extends Controller
 
     public function update(Request $request, Siswa $siswa)
     {
-        $validator = Validator::make($request->all(), [
-            'name'     => 'required',
-            'url'      => 'required' 
+        $validator = Validator::make($request->all(),[
+            'nama'      => 'required',
+            'alamat'    => 'required',
+            'email'     => 'required',
+            'telepon'   => 'required', 
         ]);
 
         if ($validator->fails()) {
@@ -62,8 +64,10 @@ class SiswaController extends Controller
 
         //update menu
         $siswa->update([
-            'name' => $request->name,
-            'url'  => $request->url,
+'nama' => $request->nama,
+'alamat'  => $request->alamat,
+'email' => $request->email,
+'telepon' => $request->telepon
         ]);
 
         if($siswa) {
