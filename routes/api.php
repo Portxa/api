@@ -101,4 +101,23 @@ Route::prefix('web')->group(function () {
     Route::delete('/penulis/delete/{penulis}', [App\Http\Controllers\Api\Web\PenulisController::class, 'destroy']);
     Route::get('/penulis/{id}', [App\Http\Controllers\Api\Web\PenulisController::class, 'show']);
 
+    Route::post('/kelasjurusan_ta/input', [App\Http\Controllers\Api\Web\Kelasjurusan_taController::class, 'store']);
+    Route::get('/kelasjurusan_ta', [App\Http\Controllers\Api\Web\Kelasjurusan_taController::class, 'index']);
+    Route::put('/kelasjurusan_ta/update/{kelasjurusan_ta}', [App\Http\Controllers\Api\Web\Kelasjurusan_taController::class, 'update']);
+    Route::delete('/kelasjurusan_ta/delete/{kelasjurusan_ta}', [App\Http\Controllers\Api\Web\Kelasjurusan_taController::class, 'destroy']);
+    Route::get('/kelasjurusan_ta/{id}', [App\Http\Controllers\Api\Web\Kelasjurusan_taController::class, 'show']);
+
+    Route::post('/catatan/input', [App\Http\Controllers\Api\Web\CatatanController::class, 'store']);
+    Route::get('/catatan', [App\Http\Controllers\Api\Web\CatatanController::class, 'index']);
+    Route::put('/catatan/update/{catatan}', [App\Http\Controllers\Api\Web\CatatanController::class, 'update']);
+    Route::delete('/catatan/delete/{catatan}', [App\Http\Controllers\Api\Web\CatatanController::class, 'destroy']);
+    Route::get('/catatan/{id}', [App\Http\Controllers\Api\Web\CatatanController::class, 'show']);
+
+    Route::post('/absen/input', [App\Http\Controllers\Api\Web\AbsenController::class, 'store']);
+    Route::get('/absen', [App\Http\Controllers\Api\Web\AbsenController::class, 'index']);
+    Route::put('/absen/update/{absen}', [App\Http\Controllers\Api\Web\AbsenController::class, 'update']);
+    Route::delete('/absen/delete/{asben}', [App\Http\Controllers\Api\Web\AbsenController::class, 'destroy']);
+    Route::get('/absen/{id}', [App\Http\Controllers\Api\Web\AbsenController::class, 'show']);
+
+
 });
