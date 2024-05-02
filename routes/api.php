@@ -95,4 +95,33 @@ Route::prefix('web')->group(function () {
     //index sliders
     Route::get('/sliders', [App\Http\Controllers\Api\Web\SliderController::class, 'index']);
 
+    Route::post('/guru/input', [App\Http\Controllers\Api\Web\GuruController::class, 'store']);
+    Route::get('/guru', [App\Http\Controllers\Api\Web\GuruController::class, 'index']);
+    Route::put('/guru/update/{guru}', [App\Http\Controllers\Api\Web\GuruController::class, 'update']);
+    Route::delete('/guru/delete/{guru}', [App\Http\Controllers\Api\Web\GuruController::class, 'destroy']);
+    Route::get('/guru/{id}', [App\Http\Controllers\Api\Web\GuruController::class, 'show']);
+
+    Route::post('/siswa_kelas/input', [App\Http\Controllers\Api\Web\Siswa_kelasController::class, 'store']);
+    Route::get('/siswa_kelas', [App\Http\Controllers\Api\Web\Siswa_kelasController::class, 'index']);
+    Route::put('/siswa_kelas/update/{Siswa_kelas}', [App\Http\Controllers\Api\Web\Siswa_kelasController::class, 'update']);
+    Route::get('/siswa_kelas/{id}', [App\Http\Controllers\Api\Web\Siswa_kelasController::class, 'show']);
+    Route::delete('/siswa_kelas/delete/{siswa_kelas}', [App\Http\Controllers\Api\Web\Siswa_kelasController::class, 'destroy']);
+
+    Route::post('/bacaan/input', [App\Http\Controllers\Api\Web\BacaanController::class, 'store']);
+    Route::get('/bacaan', [App\Http\Controllers\Api\Web\BacaanController::class, 'index']);
+    Route::put('/bacaan/update/{bacaan}', [App\Http\Controllers\Api\Web\BacaanController::class, 'update']);
+    Route::get('/bacaan/{id}', [App\Http\Controllers\Api\Web\BacaanController::class, 'show']);
+    Route::delete('/bacaan/delete/{bacaan}', [App\Http\Controllers\Api\Web\BacaanController::class, 'destroy']);
+
+    Route::post('/konsultasi_bk/input', [App\Http\Controllers\Api\Web\Konsultasi_bkController::class, 'store']);
+    Route::get('/konsultasi_bk', [App\Http\Controllers\Api\Web\Konsultasi_bkController::class, 'index']);
+    Route::put('/konsultasi_bk/update/{konsultasi_bk}', [App\Http\Controllers\Api\Web\Konsultasi_bkController::class, 'update']);
+    Route::get('/konsultasi_bk/{id}', [App\Http\Controllers\Api\Web\Konsultasi_bkController::class, 'show']);
+    Route::delete('/konsultasi_bk/delete/{konsultasi_bk}', [App\Http\Controllers\Api\Web\Konsultasi_bkController::class, 'destroy']);
+
+    Route::post('/tugassekolah/input', [App\Http\Controllers\Api\Web\TugassekolahController::class, 'store']);
+    Route::get('/tugassekolah', [App\Http\Controllers\Api\Web\TugassekolahController::class, 'index']);
+    Route::put('/tugassekolah/update/{tugassekolah}', [App\Http\Controllers\Api\Web\TugassekolahController::class, 'update']);
+    Route::get('/tugassekolah/{id}', [App\Http\Controllers\Api\Web\TugassekolahkController::class, 'show']);
+    Route::delete('/tugassekolah/delete/{tugassekolah}', [App\Http\Controllers\Api\Web\TugassekolahkController::class, 'destroy']);
 });
