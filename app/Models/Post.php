@@ -80,6 +80,7 @@ class Post extends Model
     protected function createdAt(): Attribute
     {
         return Attribute::make(
+
             // get: fn ($value) => \Carbon\Carbon::locale('id')->parse($value)->translatedFormat('l, d F Y'),
 
             get: function ($value) {
@@ -97,6 +98,7 @@ class Post extends Model
     protected function updatedAt(): Attribute
     {
         return Attribute::make(
+
             // get: fn ($value) => \Carbon\Carbon::locale('id')->parse($value)->translatedFormat('l, d F Y'),
 
             get: function ($value) {
