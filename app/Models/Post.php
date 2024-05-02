@@ -102,7 +102,6 @@ class Post extends Model
             get: function ($value) {
                 return Carbon::parse($value)->locale('id')->translatedFormat('l, d F Y');
             }
-
         );
     }
 }

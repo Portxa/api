@@ -138,6 +138,31 @@ Route::prefix('web')->group(function () {
     Route::put('/penerbit/update/{penerbit}', [App\Http\Controllers\Api\Web\PenerbitController::class, 'update']);
     Route::delete('/penerbit/delete/{penerbit}', [App\Http\Controllers\Api\Web\PenerbitController::class, 'destroy']);
 
+
+    Route::get('/jurusan', [App\Http\Controllers\Api\Web\JurusanController::class, 'index']);
+    Route::post('/jurusan/input', [App\Http\Controllers\Api\Web\JurusanController::class, 'store']);
+    Route::get('/jurusan/{id}', [App\Http\Controllers\Api\Web\JurusanController::class, 'show']);
+    Route::put('/jurusan/update/{jurusan}', [App\Http\Controllers\Api\Web\JurusanController::class, 'update']);
+    Route::delete('/jurusan/delete/{jurusan}', [App\Http\Controllers\Api\Web\JurusanController::class, 'destroy']);
+
+    Route::get('/jadwal_pelajaran', [App\Http\Controllers\Api\Web\Jadwal_PelajaranController::class, 'index']);
+    Route::post('/jadwal_pelajaran/input', [App\Http\Controllers\Api\Web\Jadwal_PelajaranController::class, 'store']);
+    Route::get('/jadwal_pelajaran/{id}', [App\Http\Controllers\Api\Web\Jadwal_PelajaranController::class, 'show']);
+    Route::put('/jadwal_pelajaran/update/{jadwal_pelajaran}', [App\Http\Controllers\Api\Web\Jadwal_PelajaranController::class, 'update']);
+    Route::delete('/jadwal_pelajaran/delete/{jadwal_pelajaran}', [App\Http\Controllers\Api\Web\Jadwal_PelajaranController::class, 'destroy']);
+
+    Route::get('/kalender_event', [App\Http\Controllers\Api\Web\Kalender_eventController::class, 'index']);
+    Route::post('/kalender_event/input', [App\Http\Controllers\Api\Web\Kalender_eventController::class, 'store']);
+    Route::get('/kalender_event/{id}', [App\Http\Controllers\Api\Web\Kalender_eventController::class, 'show']);
+    Route::put('/kalender_event/update/{kalender_event}', [App\Http\Controllers\Api\Web\Kalender_eventController::class, 'update']);
+    Route::delete('/kalender_event/delete/{id}', [App\Http\Controllers\Api\Web\Kalender_eventController::class, 'destroy']);
+
+    Route::get('/tabungan', [App\Http\Controllers\Api\Web\TabunganController::class, 'index']);
+    Route::post('/tabungan/input', [App\Http\Controllers\Api\Web\TabunganController::class, 'store']);
+    Route::get('/tabungan/{id}', [App\Http\Controllers\Api\Web\TabunganController::class, 'show']);
+    Route::put('tabungan/update/{tabungan}', [App\Http\Controllers\Api\Web\TabunganController::class, 'update']);
+    Route::delete('/tabungan/delete/{id}', [App\Http\Controllers\Api\Web\TabunganController::class, 'destroy']);
+
     Route::post('/penulis/input', [App\Http\Controllers\Api\Web\PenulisController::class, 'store']);
     Route::get('/penulis', [App\Http\Controllers\Api\Web\PenulisController::class, 'index']);
     Route::put('/penulis/update/{penulis}', [App\Http\Controllers\Api\Web\PenulisController::class, 'update']);
