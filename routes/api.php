@@ -21,7 +21,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', [App\Http\Controllers\Api\Admin\LoginController::class, 'index']);
 
     //group route with middleware "auth"
-    Route::group(['middleware' => 'auth:api'], function() {
+    Route::group(['middleware' => 'auth:api'], function () {
 
         //data user
         Route::get('/user', [App\Http\Controllers\Api\Admin\LoginController::class, 'getUser']);
@@ -31,16 +31,16 @@ Route::prefix('admin')->group(function () {
 
         //logout
         Route::post('/logout', [App\Http\Controllers\Api\Admin\LoginController::class, 'logout']);
-    
+
         //Tags
         Route::apiResource('/tags', App\Http\Controllers\Api\Admin\TagController::class);
 
         //Category
         Route::apiResource('/categories', App\Http\Controllers\Api\Admin\CategoryController::class);
-        
+
         //Poss
         Route::apiResource('/posts', App\Http\Controllers\Api\Admin\PostController::class);
-        
+
         //Menus
         Route::apiResource('/menus', App\Http\Controllers\Api\Admin\MenuController::class);
 
@@ -53,7 +53,6 @@ Route::prefix('admin')->group(function () {
         //dashboard
         Route::get('/dashboard', [App\Http\Controllers\Api\Admin\DashboardController::class, 'index']);
     });
-
 });
 
 //group route with prefix "web"
@@ -123,8 +122,8 @@ Route::prefix('web')->group(function () {
     Route::post('/tugassekolah/input', [App\Http\Controllers\Api\Web\TugassekolahController::class, 'store']);
     Route::get('/tugassekolah', [App\Http\Controllers\Api\Web\TugassekolahController::class, 'index']);
     Route::put('/tugassekolah/update/{tugassekolah}', [App\Http\Controllers\Api\Web\TugassekolahController::class, 'update']);
-    Route::get('/tugassekolah/{id}', [App\Http\Controllers\Api\Web\TugassekolahkController::class, 'show']);
-    Route::delete('/tugassekolah/delete/{tugassekolah}', [App\Http\Controllers\Api\Web\TugassekolahkController::class, 'destroy']);
+    Route::get('/tugassekolah/{id}', [App\Http\Controllers\Api\Web\TugassekolahController::class, 'show']);
+    Route::delete('/tugassekolah/delete/{tugassekolah}', [App\Http\Controllers\Api\Web\TugassekolahController::class, 'destroy']);
 
     Route::get('/siswa', [App\Http\Controllers\Api\Web\SiswaController::class, 'index']);
     Route::get('/siswa/{id}', [App\Http\Controllers\Api\Web\SiswaController::class, 'show']);
@@ -186,5 +185,4 @@ Route::prefix('web')->group(function () {
     Route::put('/absen/update/{absen}', [App\Http\Controllers\Api\Web\AbsenController::class, 'update']);
     Route::delete('/absen/delete/{asben}', [App\Http\Controllers\Api\Web\AbsenController::class, 'destroy']);
     Route::get('/absen/{id}', [App\Http\Controllers\Api\Web\AbsenController::class, 'show']);
-
 });

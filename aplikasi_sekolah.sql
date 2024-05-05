@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2024 at 09:24 PM
+-- Generation Time: May 05, 2024 at 06:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `aplikasi_sekolah`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `absens`
+--
+
+CREATE TABLE `absens` (
+  `id` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `kelasjurusan_ta_id` int(11) NOT NULL,
+  `siswakelas_id` int(11) NOT NULL,
+  `absensi` varchar(50) NOT NULL,
+  `keterangan` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `absens`
+--
+
+INSERT INTO `absens` (`id`, `tanggal`, `kelasjurusan_ta_id`, `siswakelas_id`, `absensi`, `keterangan`, `created_at`, `updated_at`) VALUES
+(1, '2006-10-14', 5, 3, 'sakit', 'kangker', '2024-04-23 21:22:02', '2024-04-24 20:15:28'),
+(2, '2006-10-14', 3, 6, 'hadie', '-', '2024-04-23 21:37:36', '2024-04-23 21:37:36'),
+(3, '2006-10-14', 3, 6, 'hadir', '-', '2024-04-23 21:49:14', '2024-04-23 21:49:14'),
+(4, '2024-04-25', 7, 4, 'hadir', '-', '2024-04-24 19:15:55', '2024-04-24 19:15:55');
 
 -- --------------------------------------------------------
 
@@ -231,6 +258,31 @@ INSERT INTO `kalender_events` (`id`, `judul`, `tanggal`, `deskripsi`, `tempat`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kelasjurusan_tas`
+--
+
+CREATE TABLE `kelasjurusan_tas` (
+  `id` int(11) NOT NULL,
+  `tahun_ajaran` varchar(10) NOT NULL,
+  `semester` varchar(20) NOT NULL,
+  `kelas` varchar(5) NOT NULL,
+  `jurusan_id` int(11) NOT NULL,
+  `guru_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kelasjurusan_tas`
+--
+
+INSERT INTO `kelasjurusan_tas` (`id`, `tahun_ajaran`, `semester`, `kelas`, `jurusan_id`, `guru_id`, `created_at`, `updated_at`) VALUES
+(2, '2022/2023', 'ganjil/genap', '10', 1, 4, '2024-04-22 00:14:56', '2024-04-22 00:14:56'),
+(3, '1945/2045', 'Desimal', '15', 3, 3, '2024-04-22 01:40:01', '2024-04-22 01:40:01');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `konsultasi_bks`
 --
 
@@ -314,6 +366,29 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notes`
+--
+
+CREATE TABLE `notes` (
+  `id` int(3) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `tanggal` date NOT NULL,
+  `isi` text NOT NULL,
+  `siswakelas_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`id`, `judul`, `tanggal`, `isi`, `siswakelas_id`, `created_at`, `updated_at`) VALUES
+(4, 'apa aja', '2022-02-08', 'acara penting', 4, '2024-04-24 20:24:47', '2024-04-24 20:24:47');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `password_resets`
 --
 
@@ -347,6 +422,29 @@ CREATE TABLE `penerbits` (
 INSERT INTO `penerbits` (`id`, `penerbit`, `alamat`, `telp_kantor`, `kontak`, `telp_kontak`, `created_at`, `updated_at`) VALUES
 (5, 'saep', 'batutulis', '865597945748', 'jgffkyf', '870868056865', '2024-04-17 00:35:56', '2024-04-17 20:22:27'),
 (7, 'ucup', 'bojong gede', '083634634646', 'ucupxl', '085766456346743', '2024-04-17 19:10:51', '2024-04-17 19:10:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penulis`
+--
+
+CREATE TABLE `penulis` (
+  `id` int(5) NOT NULL,
+  `penulis` varchar(50) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `telp` varchar(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `penulis`
+--
+
+INSERT INTO `penulis` (`id`, `penulis`, `alamat`, `telp`, `created_at`, `updated_at`) VALUES
+(17, 'ecep', 'Garut', '08977777', '2024-04-17 19:10:46', '2024-04-17 21:43:40'),
+(19, 'juned', 'leuwi gajah', '8393', '2024-04-17 21:43:26', '2024-04-17 21:43:26');
 
 -- --------------------------------------------------------
 
@@ -564,6 +662,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
+-- Indexes for table `absens`
+--
+ALTER TABLE `absens`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `bacaans`
 --
 ALTER TABLE `bacaans`
@@ -620,6 +724,12 @@ ALTER TABLE `kalender_events`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `kelasjurusan_tas`
+--
+ALTER TABLE `kelasjurusan_tas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `konsultasi_bks`
 --
 ALTER TABLE `konsultasi_bks`
@@ -644,6 +754,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notes`
+--
+ALTER TABLE `notes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -653,6 +769,12 @@ ALTER TABLE `password_resets`
 -- Indexes for table `penerbits`
 --
 ALTER TABLE `penerbits`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `penulis`
+--
+ALTER TABLE `penulis`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -719,6 +841,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `absens`
+--
+ALTER TABLE `absens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `bacaans`
 --
 ALTER TABLE `bacaans`
@@ -773,6 +901,12 @@ ALTER TABLE `kalender_events`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `kelasjurusan_tas`
+--
+ALTER TABLE `kelasjurusan_tas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `konsultasi_bks`
 --
 ALTER TABLE `konsultasi_bks`
@@ -797,10 +931,22 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `notes`
+--
+ALTER TABLE `notes`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `penerbits`
 --
 ALTER TABLE `penerbits`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `penulis`
+--
+ALTER TABLE `penulis`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
